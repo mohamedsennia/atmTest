@@ -21,7 +21,7 @@ public class Vehicule {
     String brand;
     String model;
     int maxSeats;
-    @OneToMany(mappedBy = "driver")
+    @OneToMany(mappedBy = "vehicule")
     private List<Ride> rides;
     public Vehicule(String id,String brand,String model,int maxSeats){
         this.id=id;

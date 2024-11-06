@@ -77,7 +77,7 @@ public class RideService {
             .collect(Collectors.toList());
     }
 
-    public void addPersonToRide(int rideId, User user){
+    public void addPersonToRide(int rideId, UserDTO userDTO){
         Optional<Ride> OptionalRide= this.rideRepository.findById(rideId);
         if(OptionalRide.isEmpty()){
             throw new ResourceNotFoundException("Ride not found");
@@ -85,6 +85,7 @@ public class RideService {
         Ride ride  =OptionalRide.get();
         Vehicule vehicule=ride.getVehicule();
         if(vehicule.getMaxSeats()>ride.getUsers().size()){
+            User user  =this.userService.findByEmail(userDTO.getEmail());
             ride.addUser(user);
             this.rideRepository.save(ride);
         }

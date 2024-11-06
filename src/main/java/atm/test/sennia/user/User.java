@@ -48,6 +48,14 @@ public class User implements UserDetails {
 
     }
 
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role=Role.Admin;
+    }
+
     @Override
     public String getUsername() {
         return this.email;

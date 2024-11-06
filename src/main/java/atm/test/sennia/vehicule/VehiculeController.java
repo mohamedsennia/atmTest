@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RestController("/api/v1/vehicules")
+
+@RestController
+@RequestMapping("/api/v1/vehicules")
 public class VehiculeController {
     private VehiculeService vehiculeService;
     @Autowired
@@ -36,4 +37,5 @@ public class VehiculeController {
     public void addVehicule(@RequestBody VehiculeDTO vehiculeDTO){
         this.vehiculeService.addVehicule(vehiculeDTO);
     }
+
 }
